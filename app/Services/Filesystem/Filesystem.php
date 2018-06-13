@@ -44,7 +44,7 @@ class Filesystem extends BaseFilesystem
      * @throws FileNotFoundException
      * @return bool
      */
-    public function touch(string $path): string
+    public function touch(string $path): bool
     {
         if (touch($path)) {
             return true;
@@ -63,7 +63,7 @@ class Filesystem extends BaseFilesystem
      * @throws FileNotFoundException
      * @return string
      */
-    public function md5(string $path, $raw_output = null): string
+    public function md5(string $path, bool $raw_output = false): string
     {
         if ($this->isFile($path)) {
             $hash = md5_file($path, $raw_output);

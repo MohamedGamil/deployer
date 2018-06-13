@@ -74,7 +74,7 @@ class LatestRelease implements LatestReleaseInterface
                 return false;
             }
 
-            return json_decode($response->getBody());
+            return json_decode($response->getBody()->getContents());
         });
 
         if (is_object($release) && property_exists($release, 'tag_name')) {

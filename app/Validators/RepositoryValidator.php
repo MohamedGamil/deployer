@@ -18,6 +18,10 @@ class RepositoryValidator implements ValidatorInterface
     {
         $value = $args[1];
 
+        if (is_null($value)) {
+            return false;
+        }
+
         // Plain old git repo
         if (preg_match('/^(ssh|git|https?):\/\//', $value)) {
             return true;
